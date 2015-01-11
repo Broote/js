@@ -13,8 +13,9 @@ Customer.prototype = {
   },
 
   addAllRentals: function(films) {
-    for (var i = 0; i < films.length; i++) {
-      var current = films[i];
+    var sortedFilms = films.sort(function(a,b) {return a[0].localeCompare(b[0])});
+    for (var i = 0; i < sortedFilms.length; i++) {
+      var current = sortedFilms[i];
       this.addRental(new Rental(new Movie(current[0], current[1]), current[2]))
     }
     return this;
