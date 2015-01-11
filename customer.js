@@ -23,25 +23,9 @@ Customer.prototype = {
       result = "Rental summary for "+this.getName()+"\n";
 
     for (var i = 0; i < this._rentals.length; i++) {
-      var thisAmount = 0, rental = this._rentals[i];
+      var thisAmount, rental = this._rentals[i];
 
-      // determine sum for each row
-      switch(rental.movie.priceCode)
-      {
-        case REGULAR:
-          thisAmount += 2;
-          if(rental.daysRented > 2)
-            thisAmount += (rental.daysRented - 2) * 1.5;
-          break;
-        case NEW_RELEASE:
-          thisAmount += rental.daysRented * 3;
-          break;
-        case CHILDREN:
-          thisAmount += 1.5;
-          if(rental.daysRented > 3)
-            thisAmount += (rental.daysRented - 3) * 1.5;
-          break;
-      }
+      thisAmount = rental.getAmount();
 
       // add points for active renter
       frequentRenterPoints++;

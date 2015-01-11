@@ -10,11 +10,3 @@ function Movie(title, priceCode) {
   this.title = title;
   this.priceCode = priceCode;
 }
-
-/**
- * Represents information about movie rental
- */
-function Rental(movie, daysRented) {
-  this.movie = movie;
-  this.daysRented = daysRented;
-}
