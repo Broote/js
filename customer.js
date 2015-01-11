@@ -29,8 +29,8 @@ Customer.prototype = {
   statement: function() {
     var totalAmount = 0,
       frequentRenterPoints = 0,
-      result = "Rental summary for "+this.getName()+"\n",
-      withTable = !!document.getElementById("show_all");
+      withTable = !!document.getElementById("show_all"),
+      result = "";
 
     for (var i = 0; i < this._rentals.length; i++) {
       var thisAmount, rental = this._rentals[i];
@@ -46,11 +46,14 @@ Customer.prototype = {
     }
 
     // print footer
-    result += "Total debt: " + totalAmount.toFixed(1) + "\n";
     if (withTable) {
-      result += "You earned " + frequentRenterPoints + " points";
+      result = "<p>Rental summary for "+this.getName()+"</p>" + result;
+      result += "<p>Total debt: " + totalAmount.toFixed(1) + "</p>";
+      result += "<p>You earned " + frequentRenterPoints + " points</p>";
     } else {
-      result += "You earned " + frequentRenterPoints + " points for your activity";
+      result = "Rental summary for "+this.getName()+"\n" + result;
+      result += "Total debt: " + totalAmount.toFixed(1) + "\n";
+      result += "You earned: " + frequentRenterPoints + " points for your activity";
     }
 
     return result;
