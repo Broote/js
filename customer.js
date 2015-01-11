@@ -52,11 +52,11 @@ Customer.prototype = {
     if (withTable) {
       result = "<p>Rental summary for "+this.getName()+"</p>" + result;
       result += "<p>Total debt: " + totalAmount.toFixed(1) + "</p>";
-      result += "<p>You earned " + frequentRenterPoints + " points</p>";
+      result += "<p>You earned: " + frequentRenterPoints + " points</p>";
     } else {
       result = "Rental summary for "+this.getName()+"\n" + result;
       result += "Total debt: " + totalAmount.toFixed(1) + "\n";
-      result += "You earned: " + frequentRenterPoints + " points for your activity";
+      result += "You earned " + frequentRenterPoints + " points for your activity";
     }
 
     return result;
