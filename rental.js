@@ -10,6 +10,7 @@ function Rental(movie, daysRented) {
 }
 
 Rental.prototype = {
+  // calculate amount for rental
   getAmount: function(){
     var rental = this,
       amount = 0;
@@ -29,6 +30,7 @@ Rental.prototype = {
           amount += (rental.daysRented - 3) * 1.5;
         break;
     }
+    // save values for table
     rental.amount = amount;
     return amount;
   },

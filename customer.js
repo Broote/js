@@ -13,6 +13,7 @@ Customer.prototype = {
   },
 
   addAllRentals: function(films) {
+    // sort by name
     var sortedFilms = films.sort(function(a,b) {return a[0].localeCompare(b[0])});
     for (var i = 0; i < sortedFilms.length; i++) {
       var current = sortedFilms[i];
@@ -29,7 +30,9 @@ Customer.prototype = {
   statement: function() {
     var totalAmount = 0,
       frequentRenterPoints = 0,
+      // check if we have page with table and html or with preformatted text
       withTable = !!document.getElementById("show_all"),
+      // variable for inner text
       result = "";
 
     for (var i = 0; i < this._rentals.length; i++) {
