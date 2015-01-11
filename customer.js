@@ -26,12 +26,7 @@ Customer.prototype = {
       var thisAmount, rental = this._rentals[i];
 
       thisAmount = rental.getAmount();
-
-      // add points for active renter
-      frequentRenterPoints++;
-      // bonus for two days rental
-      if (rental.movie.priceCode == NEW_RELEASE && rental.daysRented > 1)
-        frequentRenterPoints++;
+      frequentRenterPoints += rental.calculatePoints();
 
       // print results for this rental
       result += "\t" + rental.movie.title + "\t" + thisAmount.toFixed(1) + "\n";

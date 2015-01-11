@@ -1,6 +1,9 @@
 /**
  * Represents information about movie rental
  */
+
+// TODO: refactor magic numbers if logic become more complicated
+
 function Rental(movie, daysRented) {
   this.movie = movie;
   this.daysRented = daysRented;
@@ -12,7 +15,6 @@ Rental.prototype = {
       amount = 0;
     switch(rental.movie.priceCode)
     {
-      // refactor magic numbers if logic become more complicated
       case REGULAR:
         amount += 2;
         if(rental.daysRented > 2)
@@ -28,5 +30,13 @@ Rental.prototype = {
         break;
     }
     return amount;
+  },
+
+  calculatePoints: function(){
+    if (this.movie.priceCode == NEW_RELEASE && this.daysRented > 1) {
+      return 2;
+    } else {
+      return 1;
+    }
   }
 };
