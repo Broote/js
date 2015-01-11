@@ -4,17 +4,23 @@
     <script src="movie.js"></script>
     <script src="customer.js"></script>
     <script src="rental.js"></script>
+    <script src="films.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <pre id='text-report'>
     Loading report...
 </pre>
+<table id="show_all">
+    <tr>
+        <td>Title</td>
+        <td>Cost</td>
+    </tr>
+</table>
 <script>
-    var customer = new Customer("Customer1")
-            .addRental(new Rental(new Movie("Nightmare on Elm Street", CHILDREN), 3))
-            .addRental(new Rental(new Movie("The Pirates of Caribbean", REGULAR), 1))
-            .addRental(new Rental(new Movie("Kill Bill", NEW_RELEASE), 5));
+    var customer = new Customer("Dmitry").addAllRentals(FILMS);
     document.getElementById('text-report').innerHTML = customer.statement();
+    customer.drawTable();
 </script>
 </body>
 </html>

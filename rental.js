@@ -29,6 +29,7 @@ Rental.prototype = {
           amount += (rental.daysRented - 3) * 1.5;
         break;
     }
+    rental.amount = amount;
     return amount;
   },
 
