@@ -5,22 +5,18 @@
     <script src="customer.js"></script>
     <script src="rental.js"></script>
     <script src="films.js"></script>
+    <script src="reports.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div id='text-report'>
     Loading report...
 </div>
-<table id="show_all">
+<table class="films" id="show_all">
     <tr>
-        <td>Title</td>
-        <td>Cost</td>
+        <td class="table-inner">Title</td>
+        <td class="table-inner">Cost</td>
     </tr>
 </table>
-<script>
-    var customer = new Customer("Dmitry").addAllRentals(FILMS);
-    document.getElementById('text-report').innerHTML = customer.statement();
-    customer.drawTable();
-</script>
 </body>
 </html>

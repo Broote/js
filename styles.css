@@ -1,12 +1,12 @@
-table {
+.films {
   margin-left: 50px;
 }
 
-table, td {
+.films, .table-inner {
   border: 1px solid black;
   border-collapse: collapse;
 }
 
-table td {
+.films .table-inner {
   padding: 5px;
 }
