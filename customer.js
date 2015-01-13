@@ -1,3 +1,7 @@
+var MOVIE_NAME=0,
+    MOVIE_TYPE=1,
+    DAYS=2;
+
 /**
  * Represents a customer of the movie store
  */
@@ -17,7 +21,8 @@ Customer.prototype = {
     var sortedFilms = films.sort(function(a,b) {return a[0].localeCompare(b[0])});
     for (var i = 0; i < sortedFilms.length; i++) {
       var current = sortedFilms[i];
-      this.addRental(new Rental(new Movie(current[0], current[1]), current[2]))
+      var movie = createMovie(current[MOVIE_NAME], current[MOVIE_TYPE]);
+      this.addRental(new Rental(movie, current[DAYS]))
     }
     return this;
   },

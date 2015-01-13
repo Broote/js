@@ -6,23 +6,27 @@ CHILDREN = 2;
 /**
  * Stores information about movies
  */
-function Movie(title, priceCode) {
+function Movie(title) {
   this.title = title;
-  this.priceCode = priceCode;
+}
+
+function createMovie(title, priceCode){
+  switch(priceCode)
+  {
+    case REGULAR:
+      // how can I fix this?
+      Regular.prototype = new Movie(title);
+      return new Regular(title);
+    case NEW_RELEASE:
+      NewRelease.prototype = new Movie(title);
+      return new NewRelease(title);
+    case CHILDREN:
+      Children.prototype = new Movie(title);
+      return new Children(title);
+  }
 }
 
 Movie.prototype = {
-  getAmount: function(daysRented){
-    switch(this.priceCode)
-    {
-      case REGULAR:
-        return new Regular().calculateAmount(daysRented);
-      case NEW_RELEASE:
-        return new NewRelease().calculateAmount(daysRented);
-      case CHILDREN:
-        return new Children().calculateAmount(daysRented);
-    }
-  },
   calculateAmount: function(daysRented){
     var amount = this.firstDaysAmount;
     if(daysRented > this.daysLimit)
@@ -37,15 +41,16 @@ function Regular(){
   this.daysLimit = 2
 }
 
-Regular.prototype = new Movie();
+//Regular.prototype = new Movie();
 
 function NewRelease(){
   this.firstDaysAmount = 0;
   this.perDayAmount = 3;
-  this.daysLimit = 0
+  this.daysLimit = 0;
+  this.bonusMovie = true
 }
 
-NewRelease.prototype = new Movie();
+//NewRelease.prototype = new Movie();
 
 function Children(){
   this.firstDaysAmount = 1.5;
@@ -53,4 +58,4 @@ function Children(){
   this.daysLimit = 3
 }
 
-Children.prototype = new Movie();
+//Children.prototype = new Movie();

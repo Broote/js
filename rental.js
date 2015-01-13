@@ -11,14 +11,13 @@ Rental.prototype = {
 
   // calculate amount for rental
   getAmount: function(){
-    var rental = this,
     // save values for table
-    rental.amount = rental.movie.getAmount(rental.daysRented);
-    return rental.amount;
+    this.amount = this.movie.calculateAmount(this.daysRented);
+    return this.amount;
   },
 
   calculatePoints: function(){
-    if (this.movie.priceCode == NEW_RELEASE && this.daysRented > 1) {
+    if (this.movie.bonusMovie && this.daysRented > 1) {
       return 2;
     } else {
       return 1;
