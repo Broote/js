@@ -59,14 +59,13 @@ TextReport.prototype = new Report();
 function TableReport(customer){
   this.customer = customer;
   this.output = function() {
-    var result = [];
     var values = this.getAmountAndPoints();
     var reportNode = document.getElementById('table-report');
     reportNode.innerHTML = "";
     reportNode.appendChild(addParagraph("Rental summary for "+this.customer.getName()));
     reportNode.appendChild(addParagraph("Total debt: " + values.amount.toFixed(1)));
     reportNode.appendChild(addParagraph("You earned: " + values.points + " points"));
-    //this.drawTable();
+    this.drawTable();
   }
 }
 
