@@ -4,6 +4,8 @@
     <script src="movie.js"></script>
     <script src="customer.js"></script>
     <script src="rental.js"></script>
+    <script src="films.js"></script>
+    <script src="reports.js"></script>
 </head>
 <body>
     <h3>Report</h3>
@@ -11,11 +13,8 @@
         Loading report...
     </pre>
     <script>
-        var customer = new Customer("Customer1")
-                .addRental(new Rental(new Movie("Nightmare on Elm Street", CHILDREN), 3))
-                .addRental(new Rental(new Movie("The Pirates of Caribbean", REGULAR), 1))
-                .addRental(new Rental(new Movie("Kill Bill", NEW_RELEASE), 5));
-        document.getElementById('text-report').innerHTML = customer.statement();
+        var customer = new Customer("Customer1").addAllRentals(FILMS);
+        createReport(customer, TEXT);
     </script>
 </body>
 </html>

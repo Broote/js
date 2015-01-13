@@ -14,7 +14,6 @@ function createMovie(title, priceCode){
   switch(priceCode)
   {
     case REGULAR:
-      // how can I fix this?
       Regular.prototype = new Movie(title);
       return new Regular(title);
     case NEW_RELEASE:
