@@ -1,3 +1,5 @@
+var BONUS=1;
+
 /**
  * Represents information about movie rental
  */
@@ -18,7 +20,7 @@ Rental.prototype = {
 
   calculatePoints: function(){
     if (this.movie.bonusMovie && this.daysRented > 1) {
-      return 2;
+      return 1 + BONUS;
     } else {
       return 1;
     }

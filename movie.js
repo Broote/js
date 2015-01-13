@@ -26,6 +26,10 @@ function createMovie(title, priceCode){
   }
 }
 
+function sortFilms(films){
+  return films.concat().sort(function(a,b) {return a[0].localeCompare(b[0])});
+}
+
 Movie.prototype = {
   calculateAmount: function(daysRented){
     var amount = this.firstDaysAmount;

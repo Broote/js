@@ -1,5 +1,6 @@
 window.onload = function() {
   var customer = new Customer("Dmitry").addAllRentals(FILMS);
-  document.getElementById('text-report').innerHTML = customer.statement();
-  customer.drawTable();
+  var report = new Report(customer);
+  document.getElementById('text-report').innerHTML = report.statement();
+  report.drawTable();
 };
