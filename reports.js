@@ -1,22 +1,6 @@
-// types
-TEXT = 0;
-TABLE = 1;
-
-function Report(customer){
-  this.customer = customer
+function Report(){
 }
 
-function createReport(customer, type){
-  switch(type)
-  {
-    case TEXT:
-      //TextReport.prototype = new Report(customer);
-      return new TextReport(customer).output();
-    case TABLE:
-      //TableReport.prototype = new Report(customer);
-      return new TableReport(customer).output();
-  }
-}
 
 Report.prototype = {
 

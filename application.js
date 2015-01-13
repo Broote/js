@@ -1,4 +1,5 @@
 window.onload = function() {
-  var customer = new Customer("Dmitry").addAllRentals(FILMS);
-  createReport(customer, TABLE);
+  var sorted = true;
+  var customer = new Customer("Dmitry").addAllRentals(FILMS, sorted);
+  new TableReport(customer).output();
 };
