@@ -12,17 +12,9 @@ Customer.prototype = {
     return this._name;
   },
 
-  addAllRentals: function(films, sorted) {
-    if (sorted) {
-      // sort by name
-      var sortedFilms = sortFilms(films);
-    } else {
-      var sortedFilms = films;
-    }
-    for (var i = 0; i < sortedFilms.length; i++) {
-      var current = sortedFilms[i];
-      var movie = createMovie(current[MOVIE_NAME], current[MOVIE_TYPE]);
-      this.addRental(new Rental(movie, current[DAYS]))
+  addAllRentals: function(rentals) {
+    for (var i = 0; i < rentals.length; i++) {
+      this.addRental(rentals[i]);
     }
     return this;
   },

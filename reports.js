@@ -57,8 +57,9 @@ TableReport.prototype = new Report();
 
 TableReport.prototype.drawTable = function() {
   var tbl = document.getElementById("show_all");
-  for (var i = 0; i < this.customer._rentals.length; i++) {
-    var rental = this.customer._rentals[i];
+  var sorted = sortRentals(this.customer._rentals);
+  for (var i = 0; i < sorted.length; i++) {
+    var rental = sorted[i];
     var row = tbl.insertRow(-1);
     var cells = [];
     cells[0] = row.insertCell(0);
@@ -70,6 +71,10 @@ TableReport.prototype.drawTable = function() {
     }
   }
 };
+
+function sortRentals(rentals){
+  return rentals.concat().sort(function(a,b) {return (a.movie.title).localeCompare(b.movie.title)});
+}
 
 // helper
 function addParagraph(text){

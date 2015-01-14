@@ -14,19 +14,12 @@ function createMovie(title, priceCode){
   switch(priceCode)
   {
     case REGULAR:
-      Regular.prototype = new Movie(title);
       return new Regular(title);
     case NEW_RELEASE:
-      NewRelease.prototype = new Movie(title);
       return new NewRelease(title);
     case CHILDREN:
-      Children.prototype = new Movie(title);
       return new Children(title);
   }
-}
-
-function sortFilms(films){
-  return films.concat().sort(function(a,b) {return a[0].localeCompare(b[0])});
 }
 
 Movie.prototype = {
@@ -38,14 +31,19 @@ Movie.prototype = {
   }
 };
 
-function Regular(){
+Regular.prototype = new Movie();
+
+function Regular(title){
+  this.title = title;
   this.firstDaysAmount = 2;
   this.perDayAmount = 1.5;
   this.daysLimit = 2
 }
 
+NewRelease.prototype = new Movie();
 
-function NewRelease(){
+function NewRelease(title){
+  this.title = title;
   this.firstDaysAmount = 0;
   this.perDayAmount = 3;
   this.daysLimit = 0;
@@ -61,8 +59,10 @@ NewRelease.prototype.getBonus = function(days){
     }
 };
 
+Children.prototype = new Movie();
 
-function Children(){
+function Children(title){
+  this.title = title;
   this.firstDaysAmount = 1.5;
   this.perDayAmount = 1.5;
   this.daysLimit = 3
