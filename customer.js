@@ -1,7 +1,3 @@
-var MOVIE_NAME=0,
-    MOVIE_TYPE=1,
-    DAYS=2;
-
 /**
  * Represents a customer of the movie store
  */

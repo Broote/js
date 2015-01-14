@@ -44,7 +44,6 @@ function Regular(){
   this.daysLimit = 2
 }
 
-//Regular.prototype = new Movie();
 
 function NewRelease(){
   this.firstDaysAmount = 0;
@@ -53,12 +52,18 @@ function NewRelease(){
   this.bonusMovie = true
 }
 
-//NewRelease.prototype = new Movie();
+NewRelease.prototype.getBonus = function(days){
+    var bonus = 1;
+    if (days > 1){
+      return bonus;
+    } else {
+      return 0;
+    }
+};
+
 
 function Children(){
   this.firstDaysAmount = 1.5;
   this.perDayAmount = 1.5;
   this.daysLimit = 3
 }
-
-//Children.prototype = new Movie();
